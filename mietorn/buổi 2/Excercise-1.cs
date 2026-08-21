@@ -8,7 +8,7 @@ namespace mietorn.buổi_2
 {
     internal class Excercise_1
     {
-        public static void Main(string[] args)
+        public static void Main11(string[] args)
         {
             int a = 6, b = 10;
 
