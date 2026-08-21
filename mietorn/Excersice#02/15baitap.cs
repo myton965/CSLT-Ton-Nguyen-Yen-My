@@ -27,8 +27,34 @@ namespace mietorn.Excersice_02
             if (kwh > 50m)
             {
                 decimal bac2 = Math.Min(kwh - 50m, 50m);
+                tienDienChuaThue += bac2 * 1866m;
             }
+            //Bậc 3: Cho 100 kWh tiếp theo (từ 101 - 200 kWh): 2.167 VNĐ/kWh
+            if (kwh > 100m)
+            {
+                decimal bac3 = Math.Min(kwh - 100m, 100m);
+                tienDienChuaThue += bac3 * 2167m;
+            }
+            //Bậc 4: Cho 100 kWh tiếp theo (từ 201 - 300 kWh): 2.729 VNĐ/kWh
+            if (kwh > 200m)
+            {
+                decimal bac4 = Math.Min(kwh - 200m, 100m);
+                tienDienChuaThue += bac4 * 2729m;
+            }
+            //Bậc 5: Cho toàn bộ kWh từ 301 kWh trở lên: 3050 VNĐ/kWh
+            if (kwh > 300m)
+            {
+                decimal bac5 = kwh-300m;
+                tienDienChuaThue += bac5 * 3050m;
+            }
+            //Cộng thêm 8% Thuế Giá trị gia tăng (VAT)
+            decimal VAT = tienDienChuaThue * 0.08m;
+            decimal tongTienDien = tienDienChuaThue + VAT;
 
+            Console.WriteLine($"Số điện tiêu thụ: {kwh} kWh");
+            Console.WriteLine($"Tiền điện chưa thuế: {tienDienChuaThue:#,##0} VNĐ");
+            Console.WriteLine($"Thuế VAT: {VAT:#,##0} VNĐ");
+            Console.WriteLine($"Tổng thanh toán: {tongTienDien:#,##0} VNĐ");
         }
 
 
@@ -41,6 +67,20 @@ namespace mietorn.Excersice_02
             Console.OutputEncoding = Encoding.UTF8;
 
             // Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN):
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
+            bai_1();
             bai_1();
 
 
