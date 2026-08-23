@@ -56,6 +56,40 @@ namespace mietorn.Excersice_02
             Console.WriteLine($"Thuế VAT: {VAT:#,##0} VNĐ");
             Console.WriteLine($"Tổng thanh toán: {tongTienDien:#,##0} VNĐ");
         }
+        static void bai_2()
+        {
+            //Bài 2: Hệ Thống Theo Dõi Chỉ Số BMI & Đánh Giá Tình Trạng Sức Khỏe
+            Console.Write("Nhập chiều cao (m): ");
+            double ChieuCao= double.Parse(Console.ReadLine());
+            Console.Write("Nhập cân nặng (kg):");
+            double CanNang= double.Parse(Console.ReadLine());
+            //Tính chỉ số BMI:
+            double bmi = CanNang / (ChieuCao * ChieuCao);
+            //Phân loại tình trạng sức khỏe theo chuẩn WHO dành cho người châu Á:
+            String phanLoai;
+            if (bmi < 18.5)
+            {
+                phanLoai = "Gầy (Thiếu cân)";
+            }
+            else if (bmi < 23.0)
+            {
+                phanLoai = "Bình thường (Lý tưởng)";
+            }
+            else if (bmi < 25.0)
+            {
+                phanLoai = "Thừa cân (Tiền béo phì)";
+            }
+            else
+            {
+                phanLoai = "Béo phì";
+            }
+            //Tính dải cân nặng lý tưởng cho chiều cao đó:
+            double toithieu = 18.5 * (ChieuCao * ChieuCao);
+            double toida = 22.9 * (ChieuCao * ChieuCao);
+            Console.WriteLine($"Chỉ số BMI của bạn: {bmi:F2} ");
+            Console.WriteLine($"Phân loại sức khỏe: {phanLoai}");
+            Console.WriteLine($"Khuyên dùng: Cân nặng lý tưởng của bạn nên từ {toithieu:F2} kg đến {toida:F2} kg.");
+        }
 
 
 
@@ -68,7 +102,9 @@ namespace mietorn.Excersice_02
 
             // Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN):
             bai_1();
-            bai_1();
+
+            bai_2();
+
             bai_1();
             bai_1();
             bai_1();
