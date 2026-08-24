@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace mietorn.Excersice_02
@@ -109,7 +110,7 @@ namespace mietorn.Excersice_02
             int luachon= int.Parse(Console.ReadLine());
             CurrencyType selectedCurrency = (CurrencyType)luachon;
             //Phí dịch vụ quy đổi:
-            decimal PDV = tienVND * 0.05m;
+            decimal PDV = tienVND * 0.005m;
             //Tính số tiền VNĐ thực tế sau khi trừ phí dịch vụ:
             decimal thucte = tienVND - PDV;
 
@@ -144,6 +145,47 @@ namespace mietorn.Excersice_02
             Console.WriteLine($"Số tiền {loaitiente} nhận được: {ngoaite:F2} {loaitiente}");
         }
 
+        static void bai_4()
+        {
+            //Bài 4: Tính Tuổi Chính Xác & Đếm Ngược Ngày Sinh Nhật
+            Console.Write("Nhập ngày sinh (dd/MM/yyyy): ");
+            DateTime ngaysinh;
+            bool dung= DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaysinh);
+            if (!dung)
+            {
+                Console.WriteLine("Lỗi ngày sinh: Không hợp lệ!");
+                return;
+            }
+            //Lấy ngày hiện tại của hệ thống:
+            DateTime hientai = DateTime.Now.Date;
+            //Tính tuổi chính xác tính theo số năm:
+            int tuoi = hientai.Year - ngaysinh.Year;
+            // Xác định ngày sinh nhật tiếp theo trong năm nay hoặc năm sau. Tính số ngày còn lại đến sinh nhật đó:
+            //Sinh nhật năm nay:
+            DateTime namnay = new DateTime(hientai.Year, ngaysinh.Month, ngaysinh.Day);
+            if (hientai < namnay)
+            {
+                tuoi = tuoi - 1;
+            }
+            int songaydasong = (int)(hientai - ngaysinh).TotalDays;
+            //Sinh nhật năm sau:
+            DateTime namsau = namnay;
+            if (namnay < hientai)
+            {
+                namsau = namnay.AddYears(1);
+            }
+            //số ngày còn lại để đến sinh nhật tiếp theo:
+            int remaining = (int)(namsau - hientai).TotalDays;
+            Console.WriteLine($"tuồi hiện tại: {tuoi} tuổi");
+            Console.WriteLine($"Bạn đã sống tổng cộng: {songaydasong:#,##0} ngày");
+            Console.WriteLine($"Sinh nhật tiếp theo còn: {remaining} ngày nữa");
+        }
+
+        static void bai_5()
+        {
+
+        }
+
 
 
 
@@ -161,7 +203,8 @@ namespace mietorn.Excersice_02
 
             bai_3();
 
-            bai_1();
+            bai_4();
+
             bai_1();
             bai_1();
             bai_1();
