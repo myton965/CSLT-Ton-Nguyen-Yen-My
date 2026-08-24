@@ -183,7 +183,59 @@ namespace mietorn.Excersice_02
 
         static void bai_5()
         {
-
+            Console.Write("Nhập điểm môn C#: ");
+            double diemCSharp= double.Parse( Console.ReadLine() );
+            Console.Write("Số tín chỉ môn C#: ");
+            int tcCSharp= int.Parse( Console.ReadLine() );
+            Console.Write("Nhập điểm môn Toán rời rạc: ");
+            double diemToan= double.Parse( Console.ReadLine() );
+            Console.Write("Số tín chỉ môn Toán rời rạc: ");
+            int tcToan= int.Parse( Console.ReadLine() );
+            Console.Write("Nhập điểm môn Tiếng Anh: ");
+            double diemTiengAnh= double.Parse( Console.ReadLine() );
+            Console.Write("Số tín chỉ môn Tiếng Anh: ");
+            int tcTiengAnh= int.Parse( Console.ReadLine() );
+            // Tính điểm trung bình trọng số:
+            int tongtc = tcCSharp + tcToan + tcTiengAnh;
+            double diemTB = (diemCSharp * tcCSharp + diemToan * tcToan + diemTiengAnh * tcTiengAnh) / tongtc;
+            // Quy đổi Score_Avg sang Điểm chữ (char/string) và Thang điểm 4 (double):
+            char diemchu;
+            double gpa4;
+            string xeploai;
+            if (diemTB >= 8.5)
+            {
+                diemchu = 'A';
+                gpa4 = 4.0;
+                xeploai = "Xuất sắc/ Giỏi";
+            }
+            else if (diemTB >= 7.0)
+            {
+                diemchu = 'B';
+                gpa4 = 3.0;
+                xeploai = "Khá";
+            }
+            else if (diemTB >= 5.5)
+            {
+                diemchu = 'C';
+                gpa4 = 2.0;
+                xeploai = "Trung bình";
+            }
+            else if (diemTB >= 4.0)
+            {
+                diemchu = 'D';
+                gpa4 = 1.0;
+                xeploai = "Yếu";
+            }
+            else
+            {
+                diemchu = 'F';
+                gpa4 = 0.0;
+                xeploai = "Kém (Trượt)";
+            }
+            Console.WriteLine($"Điểm trung bình thang 10: {diemTB:F2}");
+            Console.WriteLine($"Điểm chữ quy đổi: {diemchu}");
+            Console.WriteLine($"Điểm GPA thang 4: {gpa4:F1}");
+            Console.WriteLine($"Xếp loại học lực: {xeploai}");
         }
 
 
@@ -205,7 +257,8 @@ namespace mietorn.Excersice_02
 
             bai_4();
 
-            bai_1();
+            bai_5();
+
             bai_1();
             bai_1();
             bai_1();
