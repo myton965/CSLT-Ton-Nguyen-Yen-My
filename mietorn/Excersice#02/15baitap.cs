@@ -6,6 +6,13 @@ namespace mietorn.Excersice_02
 {
     internal class _15baitap
     {
+        enum CurrencyType
+        {
+            USD=1,
+            EUR=2,
+            JPY=3,
+            GBP=4,
+        }
         static void bai_1()
         {
             // Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN)
@@ -56,6 +63,7 @@ namespace mietorn.Excersice_02
             Console.WriteLine($"Thuế VAT: {VAT:#,##0} VNĐ");
             Console.WriteLine($"Tổng thanh toán: {tongTienDien:#,##0} VNĐ");
         }
+
         static void bai_2()
         {
             //Bài 2: Hệ Thống Theo Dõi Chỉ Số BMI & Đánh Giá Tình Trạng Sức Khỏe
@@ -91,6 +99,52 @@ namespace mietorn.Excersice_02
             Console.WriteLine($"Khuyên dùng: Cân nặng lý tưởng của bạn nên từ {toithieu:F2} kg đến {toida:F2} kg.");
         }
 
+        static void bai_3()
+        {
+            //Bài 3: Ứng Dụng Quy Đổi Tiền Tệ Ngoại Tệ Đa Tỷ Giá Ngân Hàng:
+            Console.Write("Nhập số tiền VNĐ: ");
+            decimal tienVND= decimal.Parse(Console.ReadLine());
+            //Khai báo tỷ giá cố định:
+            Console.Write("Chọn ngoại tệ (1-USD, 2-EUR, 3-JPY, 4- GBP): ");
+            int luachon= int.Parse(Console.ReadLine());
+            CurrencyType selectedCurrency = (CurrencyType)luachon;
+            //Phí dịch vụ quy đổi:
+            decimal PDV = tienVND * 0.05m;
+            //Tính số tiền VNĐ thực tế sau khi trừ phí dịch vụ:
+            decimal thucte = tienVND - PDV;
+
+            decimal tygia = 0m;
+            string loaitiente = "";
+            switch (selectedCurrency)
+            {
+                case CurrencyType.USD:
+                    tygia = 25400m;
+                    loaitiente = "USD";
+                    break;
+                case CurrencyType.EUR:
+                    tygia = 27200m;
+                    loaitiente = "EUR";
+                    break;
+                case CurrencyType.JPY:
+                    tygia = 165m;
+                    loaitiente = "JPY";
+                    break;
+                case CurrencyType.GBP:
+                    tygia = 32100m;
+                    loaitiente = "GBP";
+                    break;
+                default:
+                    Console.WriteLine("Lựa chọn loại tiền tệ không hợp lệ!");
+                    return;
+            }
+            //Tính số tiền ngoại tệ nhận được:
+            decimal ngoaite = thucte / tygia;
+            Console.WriteLine($"Phí dịch vụ (0.5%): {PDV:#,##0} VNĐ");
+            Console.WriteLine($"Số tiền VNĐ tính đổi: {thucte:#,##0} VNĐ");
+            Console.WriteLine($"Số tiền {loaitiente} nhận được: {ngoaite:F2} {loaitiente}");
+        }
+
+
 
 
 
@@ -105,7 +159,8 @@ namespace mietorn.Excersice_02
 
             bai_2();
 
-            bai_1();
+            bai_3();
+
             bai_1();
             bai_1();
             bai_1();
