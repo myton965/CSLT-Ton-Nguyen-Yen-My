@@ -242,7 +242,7 @@ namespace mietorn.Excersice_02
 
 
 
-        public static void Main(string[] args)
+        public static void Main15(string[] args)
         {
             //III. DANH SÁCH 15 BÀI TẬP LẬP TRÌNH TÌNH HUỐNG THỰC TẾ
             
