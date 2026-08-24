@@ -238,6 +238,11 @@ namespace mietorn.Excersice_02
             Console.WriteLine($"Xếp loại học lực: {xeploai}");
         }
 
+        static void bai_6()
+        {
+
+        }
+
 
 
 
@@ -259,7 +264,8 @@ namespace mietorn.Excersice_02
 
             bai_5();
 
-            bai_1();
+            bai_6();
+
             bai_1();
             bai_1();
             bai_1();

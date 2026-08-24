@@ -88,7 +88,7 @@ namespace mietorn.Buổi_4
        
 
 
-        public static void Main(string[] args)
+        public static void Main16(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             
