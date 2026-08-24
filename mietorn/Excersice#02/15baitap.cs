@@ -240,7 +240,7 @@ namespace mietorn.Excersice_02
 
         static void bai_6()
         {
-            Console.Write("Nhập họ và tên thô: ");
+            
 
         }
 
