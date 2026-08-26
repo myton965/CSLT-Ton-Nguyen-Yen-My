@@ -240,18 +240,78 @@ namespace mietorn.Excersice_02
 
         static void bai_6()
         {
-            
+            // 1. Nhập họ tên:
+            Console.Write("Nhập họ tên thô: ");
+            string input = Console.ReadLine();
+
+            // 2. Tách từ và loại bỏ khoảng trắng thừa
+            string[] tu = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (tu.Length == 0) return;
+
+            // 3. Viết hoa chữ cái đầu mỗi từ
+            for (int i = 0; i < tu.Length; i++)
+            {
+                string t = tu[i].ToLower();
+                tu[i] = char.ToUpper(t[0]) + t.Substring(1);
+            }
+
+            string hoTenChuanHoa = string.Join(" ", tu);
+
+            // 4. Tách Họ, Tên đệm, Tên
+            string ho = tu[0];
+            string ten = tu[tu.Length - 1];
+            string tenDem = "";
+
+            for (int i = 1; i < tu.Length - 1; i++)
+            {
+                tenDem += (tenDem == "" ? "" : " ") + tu[i];
+            }
+
+            // 5. Ghép chuỗi username thô: ten.hovatenm (ví dụ: tuan.tranquoc)
+            string hoVaDem = "";
+            for (int i = 0; i < tu.Length - 1; i++)
+            {
+                hoVaDem += tu[i];
+            }
+
+            string usernameTho = (ten + "." + hoVaDem).ToLower();
+
+            // 6. Xóa dấu tiếng Việt trực tiếp bằng Replace (không cần hàm phụ)
+            string[] coDau = {"a", "á", "à", "ả", "ã", "ạ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ","e", "é", "è", "ẻ", "ẽ", "ẹ", "ê", "ế", "ề", "ể", "ễ", "ệ","i", "í", "ì", "ỉ", "ĩ", "ị","o", "ó", "ò", "ỏ", "õ", "ọ", "ô", "ố", "ồ", "ổ", "ỗ", "ộ", "ơ", "ớ", "ờ", "ở", "ỡ", "ợ","u", "ú", "ù", "ủ", "ũ", "ụ", "ư", "ứ", "ừ", "ử", "ữ", "ự","y", "ý", "ỳ", "ỷ", "ỹ", "ỵ","d", "đ" };
+
+            string[] khongDau = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a","e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e","i", "i", "i", "i", "i", "i","o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o","u", "u", "u", "u", "u", "u", "u", "u", "u", "u", "u", "u","y", "y", "y", "y", "y", "y","d", "d" };
+
+            string username = usernameTho;
+            for (int i = 0; i < coDau.Length; i++)
+            {
+                username = username.Replace(coDau[i], khongDau[i]);
+            }
+
+            string email = username + "@company.edu.vn";
+
+            // 7. In kết quả
+            Console.WriteLine($"Họ tên chuẩn hóa: {hoTenChuanHoa}");
+            Console.WriteLine($"Họ: {ho} | Tên đệm: {tenDem} | Tên: {ten}");
+            Console.WriteLine($"Username tạo tự động: {username}");
+            Console.WriteLine($"Email cấp phát: {email}");
+        }
+
+        static void bai_7()
+        {
 
         }
 
+        
 
 
 
 
-        public static void Main15(string[] args)
+
+        public static void Main(string[] args)
         {
             //III. DANH SÁCH 15 BÀI TẬP LẬP TRÌNH TÌNH HUỐNG THỰC TẾ
-            
+            Console.InputEncoding = System.Text.Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
 
             // Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN):
@@ -267,15 +327,9 @@ namespace mietorn.Excersice_02
 
             bai_6();
 
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
-            bai_1();
+            bai_7();
+
+            
 
 
 

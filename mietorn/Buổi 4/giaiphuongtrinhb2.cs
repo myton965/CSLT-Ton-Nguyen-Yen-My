@@ -6,7 +6,7 @@ namespace mietorn.Buổi_4
 {
     internal class giaiphuongtrinhb2
     {
-        public static void Main(string[] args)
+        public static void Main15(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             //Bài tập giải phương trình bậc 2 ax^2+bx+c=0
