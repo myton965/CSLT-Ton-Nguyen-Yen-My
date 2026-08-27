@@ -299,10 +299,27 @@ namespace mietorn.Excersice_02
 
         static void bai_7()
         {
-
+            Console.Write("Nhập quãng đường (km): ");
+            double quangduong= double.Parse(Console.ReadLine());
+            Console.Write("Nhập mức tiêu hao (L/100km): ");
+            double tieuhao = double.Parse(Console.ReadLine());
+            Console.Write("Nhập giá xăng (VNĐ/Lít): ");
+            decimal giaxang= decimal.Parse(Console.ReadLine());
+            Console.Write("Nhập số người đi: ");
+            int nguoi= int.Parse(Console.ReadLine());
+            //Tổng số lít xăng cần dùng:
+            double xang = (quangduong / 100.0) * tieuhao;
+            //Tổng chi phí tiền xăng:
+            decimal tongchiphi = giaxang * (decimal)xang;
+            //Tính số tiền mỗi người phải chi trả:
+            decimal cpgoc= tongchiphi / nguoi;
+            decimal cpmn = Math.Ceiling(cpgoc / 1000m) * 1000m;
+            Console.WriteLine($"Tổng nhiên liệu tiêu thụ: {xang:F2} Lít");
+            Console.WriteLine($"Tổng chi phí xăng dầu: {tongchiphi:#,##0} VNĐ");
+            Console.WriteLine($"Chi phí mỗi người: {cpmn:#,##0} VNĐ");
         }
 
-        
+
 
 
 
