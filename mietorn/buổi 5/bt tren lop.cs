@@ -9,7 +9,10 @@ namespace mietorn.BTCuuChuong
         public static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+
             bangcuuchuong();
+
+
         }
         static void bangcuuchuong() //Bài tập bảng cửu chương 15:
         {
@@ -22,5 +25,7 @@ namespace mietorn.BTCuuChuong
                 Console.WriteLine();
             }
         }
+
+        static void 
     }
 }
