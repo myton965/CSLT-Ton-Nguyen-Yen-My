@@ -121,7 +121,7 @@ namespace mietorn.Exercise_03
             else
                 Console.WriteLine($"The coordinate point ({x},{y}) lies on an axis.");
         }
-        public static void Main(string[] args)
+        public static void Main77(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Bai_1();
