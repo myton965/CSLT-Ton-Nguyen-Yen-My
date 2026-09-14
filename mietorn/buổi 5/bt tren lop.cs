@@ -6,7 +6,7 @@ namespace mietorn.BTCuuChuong
 {
     internal class BTCT
     {
-        public static void Main(string[] args)
+        public static void Main48(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
