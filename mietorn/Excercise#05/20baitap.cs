@@ -59,7 +59,42 @@ namespace mietorn.Excercise_05
             Console.Write("Nhập một số: ");
             int sonhap2 = Convert.ToInt32(Console.ReadLine());
             bool ketqua3= kiemtranguyento(sonhap2);
-            Console.WriteLine($"output: {ketqua3}");
+            if (ketqua3)
+                Console.WriteLine($"{sonhap2} là số nguyên tố.");
+            else
+                Console.WriteLine($"{sonhap2} không phải là số nguyên tố.");
+
+            //Bài 7:
+            Console.Write("Nhập số: ");
+            int sonhap3 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Dãy Fibonacci:");
+            InFibonacci(sonhap3);
+
+            //Bài 8: 
+            Console.Write("Nhập chuỗi: ");
+            string chuoinhap2 = Console.ReadLine();
+            int ketqua4 = demnguyenam(chuoinhap2);
+            Console.WriteLine($"Tổng số nguyên âm trong chuỗi: {ketqua4}");
+
+            //Bài 9:
+            Console.Write("Nhập x: ");
+            double x= Convert.ToDouble(Console.ReadLine());
+            Console.Write("Nhập y: ");
+            int y = int.TryParse(Console.ReadLine(), out int tempY) ? tempY : 0; // Nếu không nhập được số, mặc định y = 0
+            double ketqua5 = tinhluythua(x, y);
+            Console.WriteLine($"Lũy thừa của x,y là: {ketqua5}");
+
+            //Bài 10:
+            Console.Write("Nhập chuỗi số: ");
+            string chuoinhap3 = Console.ReadLine();
+            int[] mangsonguyen = chuoinhap3
+                .Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+            double ketqua6= tinhtrungbinh(mangsonguyen);
+            Console.WriteLine($"Trung bình là: {ketqua6}");
+
+            //Bài 11:
 
         }
 
@@ -106,5 +141,40 @@ namespace mietorn.Excercise_05
             }
             return true;
         }
+
+        static void InFibonacci(int n) //Bài 7: In ra dãy Fibonacci
+        {
+            int a = 0, b = 1;
+            for (int i=0; i<n; i++)
+            {
+                Console.Write(a+" ");
+                (a, b) = (b, a + b);
+            }
+            Console.WriteLine();
+        }
+
+        static int demnguyenam(string s) //Bài 8: Đếm số nguyên âm trong chuỗi
+        {
+            char[] nguyenam = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            return s.Count(c => nguyenam.Contains(c));
+        }
+
+        static double tinhluythua(double x, int y) //Bài 9: Tính lũy thừa
+        {
+            double result = 1;
+            for (int i=0; i<Math.Abs(y); i++)
+            {
+                result *= x;
+            }   
+            return y<0 ? 1 / result : result; //Nếu số mũ y là số âm, kết quả sẽ là 1 chia cho result. Nếu y >= 0, giữ nguyên result.
+        }
+
+        static double tinhtrungbinh(int[] arr) //Bài 10: Tính điểm trung bình của mảng
+        {
+            if (arr == null || arr.Length == 0)
+                return 0;
+            return arr.Average();
+        }
+
     }
 }
