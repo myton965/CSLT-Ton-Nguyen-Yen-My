@@ -8,7 +8,7 @@ namespace mietorn.buổi_6
 {
     internal class bt
     {
-        public static void Main(string[] args)
+        public static void Main21(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
