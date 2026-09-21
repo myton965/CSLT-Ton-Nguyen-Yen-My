@@ -6,7 +6,7 @@ namespace mietorn.Excercise_05
 {
     internal class _20baitap
     {
-        public static void Main(string[] args)
+        public static void Main11(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
@@ -262,12 +262,12 @@ namespace mietorn.Excercise_05
             return (c * 9 / 5) + 32;
         }
 
-        static int TimMin(int[] arr)
+        static int TimMin(int[] arr) //Bài 13
         {
             return arr.Min();
         }
 
-        static int TongCacChuSo(int n)
+        static int TongCacChuSo(int n) //Bài 14
         {
             int sum = 0;
             n = Math.Abs(n); // Lấy giá trị tuyệt đối của n để xử lý số âm
