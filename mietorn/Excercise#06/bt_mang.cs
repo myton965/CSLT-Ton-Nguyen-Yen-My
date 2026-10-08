@@ -9,7 +9,7 @@ namespace mietorn.buổi_7
 {
     internal class bt_mang
     {
-        public static void Main(string[] args)
+        public static void Main88(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 

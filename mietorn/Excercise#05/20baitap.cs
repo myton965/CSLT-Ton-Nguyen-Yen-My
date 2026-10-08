@@ -181,7 +181,7 @@ namespace mietorn.Excercise_05
             return n % 2 == 0;
         }
 
-        static int timmax(int a, int b, int c) //Bài 3: Tìm số lớn nhất trong 3 số nguyên
+        static int timmax(int a, int b, int c) //Bài 3: Tìm số lớn nhất trong 3 số nguyên    
         {
             return Math.Max(a, Math.Max(b, c));
         }
