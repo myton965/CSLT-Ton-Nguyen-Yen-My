@@ -7,7 +7,7 @@ namespace mietorn.Excercise_07
 {
     internal class btvn11
     {
-        public static void Main(string[] args)
+        public static void Main50(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
